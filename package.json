@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "start": "serverless offline start",
-    "dev": "serverless invoke local -f app",
+    "dev": "serverless invoke local -f",
     "test": "mocha -r ts-node/register ./tests/**/*.spec.ts && npm run lint",
     "lint": "eslint --fix ./src/**/* ./tests/**/*spec.ts"
   },
