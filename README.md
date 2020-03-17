@@ -42,6 +42,10 @@ npm run test
 yarn test
 ```
 
+By default it will be searching for tests to run ( **\*.spec.ts** files) in the path `tests/**/*`, you can add paths to the command above.
+
+It also will check the style of the code on those paths and try to fixed, if it can't will display an error or a warning depending on the error
+
 ## Run eslint to fix style
 
 ```shell
@@ -50,4 +54,4 @@ npm run lint
 yarn lint
 ```
 
-By default it will lint the paths `src/**/*` and `tests/**/*` searching for tests to run ( **\*.spec.ts** files), you can add paths to the command above.
+By default it will lint the files in the paths `src/**/*` and `tests/**/*`, you can add paths to the command above.
