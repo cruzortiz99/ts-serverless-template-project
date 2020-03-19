@@ -55,3 +55,7 @@ yarn lint
 ```
 
 By default it will lint the files in the paths `src/**/*` and `tests/**/*`, you can add paths to the command above.
+
+More information:
+
+- [Serverless Swagger API Documentation](https://github.com/deliveryhero/serverless-aws-documentation/blob/master/README.md)
