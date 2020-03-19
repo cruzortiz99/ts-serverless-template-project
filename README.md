@@ -59,3 +59,4 @@ By default it will lint the files in the paths `src/**/*` and `tests/**/*`, you 
 More information:
 
 - [Serverless Swagger API Documentation](https://github.com/deliveryhero/serverless-aws-documentation/blob/master/README.md)
+- [Serveless API DOcumentation](https://serverless.com/plugins/serverless-aws-documentation/)
