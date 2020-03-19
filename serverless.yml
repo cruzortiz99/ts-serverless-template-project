@@ -1,36 +1,60 @@
 service:
-    name: ts-serverless-project
-    # app and org for use with dashboard.serverless.com
-    #app: your-app-name
-    #org: your-org-name
-    stage: dev
-    # region: region
-custom:
-    webpack:
-        webpackConfig: ./webpack.config.js
-        includeModules: true
+  name: ts-serverless-project
+  # app and org for use with dashboard.serverless.com
+  #app: your-app-name
+  #org: your-org-name
+  stage: dev
+  # region: region
 
 # Add the serverless-webpack plugin
 plugins:
-    - serverless-webpack
-    - serverless-offline
+  - serverless-webpack
+  - serverless-offline
+  - serverless-aws-documentation
 
 provider:
-    name: aws
-    runtime: nodejs12.x
-    apiGateway:
-        minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
-    environment:
-        AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+  name: aws
+  runtime: nodejs12.x
+  apiGateway:
+    minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 include:
-    - ./src/**
+  - ./src/**
 exclude:
-    - node_modules/**
+  - node_modules/**
 functions:
-    app:
-        handler: ./src/app.hello
-        events:
-            - http:
-                  method: get
-                  path: hello
+  app:
+    handler: ./src/app.hello
+    events:
+      - http:
+          method: get
+          path: hello
+          documentation:
+            summary: 'Hello message'
+          methodResponses:
+            - statusCode: '200'
+              responseBody:
+                description: 'Response body description'
+              responseModels:
+                'application/json': 'HelloResponse'
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+  documentation:
+    api:
+      version: '0.0.1'
+      title: 'API name'
+      description: 'General API description'
+    models:
+      - name: 'HelloResponse'
+        description: 'Test response of the API'
+        contentType: 'application/json'
+        schema:
+          type: 'object'
+          properties:
+            message:
+              type: 'string'
+            input: 'object'
