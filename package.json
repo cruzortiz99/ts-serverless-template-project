@@ -6,8 +6,10 @@
   "scripts": {
     "start": "serverless offline start",
     "dev": "serverless invoke local -f",
-    "lint": "eslint --fix ./src/**/* ./tests/**/*spec.ts",
-    "test": "npm run lint && mocha -r ts-node/register ./tests/**/*.spec.ts"
+    "lint": "eslint ./src/**/* ./tests/**/*spec.ts",
+    "lint:fix": "eslint --fix ./src/**/* ./tests/**/*.spec.ts",
+    "test": "mocha -r ts-node/register ./tests/**/*.spec.ts",
+    "test:all": "npm run lint:fix && npm test"
   },
   "dependencies": {
     "pdf-creator-node": "^1.4.0",
